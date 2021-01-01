@@ -4,11 +4,16 @@ const nameForm = document.querySelector(".js-name-form"),
 const USER_LS = "currentUser";
 const SHOWING_CN = "showing";
 
+function saveName(text) {
+    localStorage.setItem(USER_LS, text);
+}
+
 function handleSubmit(event) {
     event.preventDefault();
     const userName = nameInput.value;
     nameInput.value = "";
     paintGreeting(userName);
+    saveName(userName);
 }
 
 function askForName() {
